@@ -1,0 +1,122 @@
+create table patient
+(
+ patient_id int(4) primary key not null auto_Increment,
+ firstname varchar(30),
+ lastname varchar(30),
+  problem varchar(45),
+ email varchar(45),
+ address varchar(250),
+ phone int(11),
+ dob date
+
+
+
+
+);
+create table doctor
+(
+ doctor_id int(4) primary key not null auto_Increment,
+ firstname varchar(30),
+ lastname varchar(30),
+  specialization varchar(65),
+ email varchar(45),
+ address varchar(250),
+ phone int(11),
+ dob date
+
+
+
+
+);
+create table doctor
+(
+ doctor_id int(4) primary key not null auto_Increment,
+ firstname varchar(30),
+ lastname varchar(30),
+  specialization varchar(65),
+ email varchar(45),
+ address varchar(250),
+ phone int(11),
+ dob date
+
+
+
+
+);
+create table otherstaff
+(
+ otherstaff_id int(4) primary key not null auto_Increment,
+ firstname varchar(30),
+ lastname varchar(30),
+ jobname varchar(65),
+ email varchar(45),
+ address varchar(250),
+ phone int(11),
+ dob date
+
+
+
+
+);
+create table ward
+(
+ ward_id int(4) primary key auto_increment ,
+ NOB int(4),
+ ward_type varchar(15),
+ patient_id int(4),
+ foreign key(patient_id) references patient(patient_id)
+
+
+
+);
+create table login
+(
+  username varchar(100) primary key ,
+  email varchar(150),
+  password varchar(100)
+
+
+
+);
+create table laboratory
+(
+  lab_id int(4) primary key auto_increment,
+  labname varchar(100),
+  roomnum int(4),
+  equipment varchar(200),
+  NOU int(4),
+  testsdone varchar(1000)
+
+
+
+
+);
+create table prescription
+(
+ prescription_id int(4) primary key auto_increment ,
+ patient_id int(4),
+ patient_record varchar(1000),
+ lab_record varchar(1200),
+ foreign key(patient_id) references patient(patient_id)
+
+
+
+);
+create table checkup
+(
+  patient_id int(4),
+  dateoCUP date,
+  doctor_id int(4),
+  lab_id int(4),
+  checkup varchar(100),
+  foreign key(patient_id) references patient(patient_id),
+  foreign key(doctor_id) references doctor(doctor_id),
+  foreign key(lab_id) references laboratory(lab_id)
+    
+
+ 
+
+
+
+);
+
